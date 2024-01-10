@@ -69,7 +69,7 @@ const sampleDataForPhotoList = [
 const PhotoList = () => {
 
   const parsedPhotos = sampleDataForPhotoList.map((item, index) => {
-    return <PhotoListItem key={index} {...item}  />
+    return <PhotoListItem key={item.id} {...item}  />
   })
 
   return (
