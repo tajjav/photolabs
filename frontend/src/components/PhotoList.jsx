@@ -1,7 +1,17 @@
 import React from "react";
 
 import "../styles/PhotoList.scss";
-
+import PhotoListItem from "./PhotoListItem";
+// const sampleDataForPhotoListItem = {
+//   id: "1",
+//   location: {
+//     city: "Montreal",
+//     country: "Canada",
+//   },
+//   imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
+//   username: "Joe Example",
+//   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
+// };
 const sampleDataForPhotoList = [
   {
     id: "1",
@@ -57,9 +67,14 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
+
+  const parsedPhotos = sampleDataForPhotoList.map((item, index) => {
+    return <PhotoListItem key={index} {...item}  />
+  })
+
   return (
     <ul className="photo-list">
-      {/* Insert React */}
+      {parsedPhotos}
     </ul>
   );
 };
