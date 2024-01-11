@@ -72,7 +72,12 @@ import PhotoListItem from "./PhotoListItem";
 const PhotoList = (props) => {
 
   const parsedPhotos = props.photos.map((item, index) => {
-    return <PhotoListItem key={item.id} {...item}  />
+    return <PhotoListItem
+              key={item.id}
+              item={item}
+              handleFavButton={props.handleFavButton}
+              likedPhoto={props.likedPhoto}
+            />
   })
 
   return (
