@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
-import photos from "mocks/photos";
+// import photos from "mocks/photos";
 
 // const sampleDataForPhotoListItem = {
 //   id: "1",
@@ -69,9 +69,9 @@ import photos from "mocks/photos";
 //   },
 // ];
 
-const PhotoList = () => {
+const PhotoList = (props) => {
 
-  const parsedPhotos = photos.map((item, index) => {
+  const parsedPhotos = props.photos.map((item, index) => {
     return <PhotoListItem key={item.id} {...item}  />
   })
 

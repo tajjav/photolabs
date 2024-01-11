@@ -6,6 +6,8 @@ import PhotoList from 'components/PhotoList';
 import TopicList from 'components/TopicList';
 import TopNavigation from 'components/TopNavigationBar';
 import HomeRoute from 'routes/HomeRoute';
+import topics from 'mocks/topics';
+import photos from 'mocks/photos';
 
 
 
@@ -19,8 +21,7 @@ const App = () => {
  
   return (
     <div className="App">
-     {/* <TopNavigation/> */}
-      <HomeRoute/>
+      <HomeRoute topics={topics} photos={photos} />
      
     </div>
   );

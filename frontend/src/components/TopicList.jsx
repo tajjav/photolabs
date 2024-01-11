@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import topics from "mocks/topics";
+// import topics from "mocks/topics";
 
 // const sampleDataForTopicList = [
 //   {
@@ -22,9 +22,9 @@ import topics from "mocks/topics";
 //   },
 // ];
 
-const TopicList = () => {
+const TopicList = (props) => {
 
-  const parsedTopicList = topics.map((item,index)=>{
+  const parsedTopicList = props.topics.map((item,index)=>{
     return <TopicListItem key={item.id} {...item} />
   })
   return (
