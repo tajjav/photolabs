@@ -16,7 +16,7 @@ const HomeRoute = (props) => {
     }
   }
 
-  const likedPhoto = (photoId) => {
+  const isPhotoLiked = (photoId) => {
     if(favList.includes(photoId)) {
       return true;
     }
@@ -32,7 +32,7 @@ const HomeRoute = (props) => {
       <PhotoList
         photos={props.photos}
         handleFavButton={handleFavButton}
-        likedPhoto={likedPhoto}
+        isPhotoLiked={isPhotoLiked}
       />
     </div>
   );

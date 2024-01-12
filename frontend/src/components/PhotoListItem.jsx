@@ -11,7 +11,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item" >
       <PhotoFavButton
         handleFavButton={()=> props.handleFavButton(props.item.id)}
-        likedPhoto={props.likedPhoto(props.item.id)}
+        isPhotoLiked={props.isPhotoLiked(props.item.id)}
       />
       <img className="photo-list__image" src={props.item.urls.regular} />
       <div className="photo-list__user-details" >

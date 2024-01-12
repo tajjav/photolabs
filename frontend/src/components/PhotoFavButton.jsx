@@ -4,7 +4,7 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  const {likedPhoto,handleFavButton} = props;
+  const {isPhotoLiked,handleFavButton} = props;
   // const [heartToggle, setHeartToggle] = useState(false);
   
   // const handleClick = () => {
@@ -21,7 +21,7 @@ function PhotoFavButton(props) {
     <div className="photo-list__fav-icon" onClick={handleFavButton}>
       <div className="photo-list__fav-icon-svg">
         {/* insert React */}
-        {likedPhoto
+        {isPhotoLiked
           ?<FavIcon selected={true} />
           :<FavIcon selected={false} />
         }

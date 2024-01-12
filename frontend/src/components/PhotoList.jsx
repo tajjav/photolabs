@@ -76,7 +76,7 @@ const PhotoList = (props) => {
               key={item.id}
               item={item}
               handleFavButton={props.handleFavButton}
-              likedPhoto={props.likedPhoto}
+              isPhotoLiked={props.isPhotoLiked}
             />
   })
 
