@@ -7,6 +7,10 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   
+  const handleSidePeekModal = (itemId) => {
+    console.log('itemId: ',itemId);
+    props.setPhotoId(itemId);
+  }
   return (
     <div className="photo-list__item" >
       <PhotoFavButton
@@ -20,6 +24,7 @@ const PhotoListItem = (props) => {
           {props.item.user.username}
           <div className="photo-list__user-location">
             {props.item.location.city}, {props.item.location.country}
+            <button  onClick={()=>{handleSidePeekModal(props.item.id)}}>Click</button>
           </div>
         </div>
       </div>

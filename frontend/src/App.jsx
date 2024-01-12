@@ -1,13 +1,10 @@
-import React from 'react';
-
-// import PhotoListItem from './components/PhotoListItem';
+import React, { useState } from 'react';
 import './App.scss';
-import PhotoList from 'components/PhotoList';
-import TopicList from 'components/TopicList';
-import TopNavigation from 'components/TopNavigationBar';
+
 import HomeRoute from 'routes/HomeRoute';
 import topics from 'mocks/topics';
 import photos from 'mocks/photos';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
 
@@ -16,12 +13,13 @@ import photos from 'mocks/photos';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  
+  const [photoId, setPhotoId] = useState(0);
   
  
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} />
+      <HomeRoute topics={topics} photos={photos} setPhotoId={setPhotoId}/>
+      {photoId && <PhotoDetailsModal/>}
      
     </div>
   );

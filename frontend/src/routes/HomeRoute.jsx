@@ -33,6 +33,7 @@ const HomeRoute = (props) => {
         photos={props.photos}
         handleFavButton={handleFavButton}
         isPhotoLiked={isPhotoLiked}
+        setPhotoId={props.setPhotoId}
       />
     </div>
   );
