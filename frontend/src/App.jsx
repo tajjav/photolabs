@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} setPhotoId={setPhotoId}/>
-      {photoId && <PhotoDetailsModal/>}
+      {photoId && <PhotoDetailsModal setPhotoId={setPhotoId}/>}
      
     </div>
   );
