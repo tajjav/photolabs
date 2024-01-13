@@ -8,7 +8,23 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
   
   const handleSidePeekModal = (itemId) => {
-    props.setPhotoId(itemId);
+    props.setPhotoDetails({
+      "id": itemId,
+      "location": {
+        "city": props.item.location.city,
+        "country": props.item.location.country
+      },
+      "urls": {
+        "full": props.item.urls.full,
+        "regular": props.item.urls.regular
+      },
+      "user": {
+        "id": props.item.user.id,
+        "username": props.item.user.username,
+        "name": props.item.user.name,
+        "profile": props.item.user.profile
+      }
+    })
   }
   return (
     <div className="photo-list__item" >
