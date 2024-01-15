@@ -21,7 +21,7 @@ const App = () => {
         handleFavButton={handleFavButton}
         isPhotoLiked={isPhotoLiked}
       />
-      {photoDetails.id !== "0" && (
+      {photoDetails && (
         <PhotoDetailsModal
           photoDetails={photoDetails}
           setPhotoDetails={setPhotoDetails}
