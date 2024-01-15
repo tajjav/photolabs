@@ -2,7 +2,8 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
-
+import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 // const sampleDataForPhotoListItem = {
 //   id: "1",
 //   location: {
@@ -39,13 +40,13 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick={() => setPhotoDetails({...photoDetails,id:"0"})}>
         <img src={closeSymbol} alt="close symbol"  />
       </button>
-      <div className='photo-details-modal__images'>
-
         <div className='photo-details-modal__top-bar'>
-          <div className='photo-details-modal__header'>
-            {photoDetails.id}. {photoDetails.user.username}
-          </div>
         </div>
+      <div className='photo-details-modal__images'>
+        <PhotoFavButton
+          handleFavButton={()=> props.handleFavButton(props.photoDetails.id)}
+          isPhotoLiked={props.isPhotoLiked(props.photoDetails.id)}
+        />
         <img src={photoDetails.urls.full} alt='photo' className='photo-details-modal__image' />
         <div className="photo-details-modal__photographer-details" >
           <img className="photo-details-modal__photographer-profile " src={photoDetails.user.profile} />
@@ -56,6 +57,13 @@ const PhotoDetailsModal = (props) => {
             </div>
           </div>
         </div>
+        <div className='photo-details-modal__header'>Similar Photos</div>
+        <PhotoList
+          photos={props.photos}
+          handleFavButton={props.handleFavButton}
+          isPhotoLiked={props.isPhotoLiked}
+          setPhotoDetails={props.setPhotoDetails}
+        />
       </div>
     </div>
   )

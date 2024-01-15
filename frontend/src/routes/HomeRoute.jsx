@@ -6,33 +6,33 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
   
-  const [favList, setFavList] = useState([]);
+  // const [favList, setFavList] = useState([]);
   
-  const handleFavButton = (photoId) => {
-    if(!favList.includes(photoId)) {
-      setFavList(prev=>[...prev,photoId])
-    } else {
-      setFavList(prev=>prev.filter(phId => phId !== photoId))
-    }
-  }
+  // const handleFavButton = (photoId) => {
+  //   if(!favList.includes(photoId)) {
+  //     setFavList(prev=>[...prev,photoId])
+  //   } else {
+  //     setFavList(prev=>prev.filter(phId => phId !== photoId))
+  //   }
+  // }
 
-  const isPhotoLiked = (photoId) => {
-    if(favList.includes(photoId)) {
-      return true;
-    }
-  }
+  // const isPhotoLiked = (photoId) => {
+  //   if(favList.includes(photoId)) {
+  //     return true;
+  //   }
+  // }
 
   return (
     <div className="home-route">
       {/* Insert React */}
       <TopNavigation
         topics={props.topics}
-        favList={favList}
+        favList={props.favList}
       />
       <PhotoList
         photos={props.photos}
-        handleFavButton={handleFavButton}
-        isPhotoLiked={isPhotoLiked}
+        handleFavButton={props.handleFavButton}
+        isPhotoLiked={props.isPhotoLiked}
         setPhotoDetails={props.setPhotoDetails}
       />
     </div>

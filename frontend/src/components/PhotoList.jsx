@@ -82,6 +82,15 @@ const PhotoList = (props) => {
             />
   })
 
+  // const parsedSimilarPhotos = props.photos.map((item, index) => {
+  //   return <PhotoListItem
+  //             key={item.id}
+  //             item={item}
+  //             handleFavButton={props.handleFavButton}
+  //             isPhotoLiked={props.isPhotoLiked}
+  //             setPhotoDetails={props.setPhotoDetails}
+  //           />
+  // })
   return (
     <ul className="photo-list">
       {parsedPhotos}
