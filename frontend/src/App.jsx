@@ -10,7 +10,7 @@ import useApplicationData from "hooks/useApplicationData";
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {topics,photos,photoDetails,setPhotoDetails,favList,handleFavButton,isPhotoLiked} = useApplicationData(); 
-
+  console.log('PhotoDetails: ', photoDetails);
   return (
     <div className="App">
       <HomeRoute
@@ -21,7 +21,7 @@ const App = () => {
         handleFavButton={handleFavButton}
         isPhotoLiked={isPhotoLiked}
       />
-      {photoDetails && (
+      {photoDetails && photoDetails.urls && (
         <PhotoDetailsModal
           photoDetails={photoDetails}
           setPhotoDetails={setPhotoDetails}

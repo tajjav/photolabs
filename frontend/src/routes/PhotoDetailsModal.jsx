@@ -34,13 +34,11 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
  let {photoDetails,setPhotoDetails} = props;
-  console.log('similarphotos: ', photoDetails.similar_photos);
-  console.log('props.photos: ', props.photos);
 
 
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={() => setPhotoDetails()}>
+      <button className="photo-details-modal__close-button" onClick={() => setPhotoDetails({})}>
         <img src={closeSymbol} alt="close symbol"  />
       </button>
         <div className='photo-details-modal__top-bar'>
@@ -67,7 +65,8 @@ const PhotoDetailsModal = (props) => {
             handleFavButton={props.handleFavButton}
             isPhotoLiked={props.isPhotoLiked}
             setPhotoDetails={props.setPhotoDetails}
-          />)}
+          />
+        )}
         
       </div>
     </div>

@@ -7,7 +7,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   
-  const handleSidePeekModal = (itemId) => {
+  const handleSidePeekModal = () => {
     props.setPhotoDetails({...props.item})
     
   }
@@ -17,7 +17,7 @@ const PhotoListItem = (props) => {
         handleFavButton={()=> props.handleFavButton(props.item.id)}
         isPhotoLiked={props.isPhotoLiked(props.item.id)}
       />
-      <img className="photo-list__image" src={props.item.urls.regular} onClick={()=>{handleSidePeekModal(props.item.id)}}/>
+      <img className="photo-list__image" src={props.item.urls.regular} onClick={handleSidePeekModal}/>
       <div className="photo-list__user-details" >
         <img className="photo-list__user-profile " src={props.item.user.profile} />
         <div className="photo-list__user-info">
