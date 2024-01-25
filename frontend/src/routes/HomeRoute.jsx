@@ -30,7 +30,8 @@ const HomeRoute = (props) => {
         favList={props.favList}
       />
       <PhotoList
-        photos={props.photos}
+     
+        photoData={props.photoData}
         handleFavButton={props.handleFavButton}
         isPhotoLiked={props.isPhotoLiked}
         setPhotoDetails={props.setPhotoDetails}

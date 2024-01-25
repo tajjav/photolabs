@@ -72,7 +72,7 @@ import PhotoListItem from "./PhotoListItem";
 const PhotoList = (props) => {
 
  
-  const parsedPhotos = props.photos.map((item, index) => {
+  const parsedPhotos = props.photoData.map((item, index) => {
     return <PhotoListItem
               key={item.id}
               item={item}

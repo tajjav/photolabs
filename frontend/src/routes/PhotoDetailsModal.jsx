@@ -61,6 +61,7 @@ const PhotoDetailsModal = (props) => {
         <div className='photo-details-modal__header'>Similar Photos</div>
         {props.photoDetails.similar_photos && (
           <PhotoList
+            photoData={props.photoData}
             photos={Object.values(props.photoDetails.similar_photos)}
             handleFavButton={props.handleFavButton}
             isPhotoLiked={props.isPhotoLiked}

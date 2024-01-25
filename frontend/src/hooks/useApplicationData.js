@@ -1,20 +1,35 @@
-import React, { useReducer } from "react";
-import topics from "mocks/topics";
-import photos from "mocks/photos";
+import axios, { Axios } from "axios";
+import React, { useEffect, useReducer } from "react";
+
+
+
 
 
 function useApplicationData () {
-  // const [photoId, setPhotoId] = useState(0);
-  // const [photoDetails, setPhotoDetails] = useState();
-  // const [favList, setFavList] = useState([]);
 
-  
+  useEffect(() => {
+    axios.get('/api/photos')
+      .then((res) => {
+        // console.log('res.data: ',res.data);
+        dispatch({type: 'SET_PHOTO_DATA', payload: res.data})
+      })
+  }, []);
+
+  useEffect(() => {
+    axios.get('/api/topics')
+      .then((res) => {
+        console.log('res.data: ',res.data);
+        dispatch({type: 'SET_TOPICS_DATA', payload: res.data})
+      })
+  }, []);
   
   const initialState = {
     photoId: 0,
     photoDetails: {},
     favList: [],
-    PhotoLiked: false
+    PhotoLiked: false,
+    photoData: [],
+    topicData: []
   }
   
   function reducer(state, action) {
@@ -31,15 +46,23 @@ function useApplicationData () {
           favList: [...state.favList].filter(phId => phId !== action.payload),
           PhotoLiked: false
         };
-      case 'SET_PHOTO_DETAILS':
+      case 'SET_PHOTO_DATA':
+        return {
+          ...state,
+          photoData: action.payload
+        };
+        case 'SET_PHOTO_DETAILS':
         return {
           ...state,
           photoDetails: action.payload
         };
+        case 'SET_TOPICS_DATA':
+          return {
+            ...state,
+            topicData: action.payload
+          };
       default:
-        return {
-          ...state
-        };
+        throw new Error(`Unsupported action type: ${action.type}`);
     }
 
   }
@@ -50,16 +73,15 @@ function useApplicationData () {
     
     if(!state.favList.includes(photoId)) {
       dispatch({type: 'FAV_PHOTO_ADDED', payload: photoId})
-      // setFavList(prev=>[...prev,photoId])
+  
     } else {
       dispatch({type: 'FAV_PHOTO_REMOVED', payload: photoId})
-      // setFavList(prev=>prev.filter(phId => phId !== photoId))
+
     }
 
   }
 
   const setPhotoDetails = (newDetails) => {
-    console.log('newDetails: ',newDetails);
     dispatch({type: 'SET_PHOTO_DETAILS', payload: newDetails});
   }
 
@@ -71,13 +93,13 @@ function useApplicationData () {
 
 
   return {
-    topics,
-    photos,
+    topics: state.topicData,
     photoDetails: state.photoDetails,
     setPhotoDetails,
     favList: state.favList,
     handleFavButton,
-    isPhotoLiked
+    isPhotoLiked,
+    photoData: state.photoData
   }
 }
 
