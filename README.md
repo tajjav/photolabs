@@ -7,7 +7,7 @@ The PhotoLabs project for the Web Development React course programming.
 
 
 
-![Screenshot of the modal with similar photos in Photolabs app](https://github.com/tajjav/photolabs/frontend/src/assets/photolabs-2.png)
+![Screenshot of the modal with similar photos in Photolabs app](https://github.com/tajjav/photolabs/blob/main/frontend/src/assets/photolabs-2.png)
 
 ## Setup
 
