@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
-
+/**
+ * PhotoFavButton component, toggle selected and unselected state of FavIcon
+ * @param {Object} props are coming from PhotoListItem.jsx
+ * @returns JSX include FavIcon
+ */
 function PhotoFavButton(props) {
   const { isPhotoLiked, handleFavButton } = props;
 

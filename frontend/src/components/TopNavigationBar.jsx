@@ -2,9 +2,13 @@ import React from "react";
 
 import "../styles/TopNavigationBar.scss";
 import TopicList from "./TopicList";
-import FavIcon from "./FavIcon";
 import FavBadge from "./FavBadge";
 
+/**
+ * TopNavigation component
+ * @param {Object} props props coming from HomeRoute.jsx
+ * @returns JSX include TopicList and FavBadge
+ */
 const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">

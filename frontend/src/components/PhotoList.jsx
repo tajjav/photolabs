@@ -2,7 +2,11 @@ import React from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
-
+/**
+ * PhotoList component, render photos on the home page and similar photos on photo details modal.
+ * @param {Object} props props are coming from HomeRoute.jsx and PhotoDetailsModal.jsx  
+ * @returns JSX include PhotoListItem
+ */
 const PhotoList = (props) => {
   const { photosForTopicIdClicked, photoData } = props;
 

@@ -4,6 +4,11 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
+/**
+ * PhotoDetailsModal component
+ * @param {Object} props props coming from app.jsx
+ * @returns JSX include PhotoFavButton and PhotoList
+ */
 const PhotoDetailsModal = (props) => {
   const { photoDetails, setPhotoDetails } = props;
 

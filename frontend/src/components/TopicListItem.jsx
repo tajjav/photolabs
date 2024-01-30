@@ -1,6 +1,10 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
-
+/**
+ * TopicListItem component, render each topic title
+ * @param {Object} props props are coming from TopicList.jsx
+ * @returns JSX
+ */
 const TopicListItem = (props) => {
   let { setTopicIdClicked } = props;
 

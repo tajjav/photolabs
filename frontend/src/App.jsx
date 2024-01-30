@@ -5,6 +5,10 @@ import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
 
+/**
+ * App component, logic is present in custom hook useApplicationData.js
+ * @returns JSX include HomeRoute and PhotoDetailsModal
+ */
 const App = () => {
   const {
     topics,

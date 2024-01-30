@@ -1,6 +1,12 @@
 import axios from "axios";
 import { useEffect, useReducer } from "react";
 
+/**
+ * Reducer function definition, it returns modified state based on the action dispatched to it. Dispatched logic is either in the useEffect hook or in the wrapper functions.
+ * @param {Object} state
+ * @param {Object} action
+ * @returns modified state object based on the action type
+ */
 function reducer(state, action) {
   switch (action.type) {
     case "FAV_PHOTO_ADDED":
@@ -45,6 +51,20 @@ function reducer(state, action) {
   }
 }
 
+/**
+ * useApplicationData custom hook, handles API requests and modify state based on the business logic and actions dispatched to the useReducer hook.  
+ * @returns Object, the simplest example is initialState.
+    initialState = {
+      photoId: 0,
+      photoDetails: {},
+      favList: [],
+      PhotoLiked: false,
+      photoData: [],
+      topicData: [],
+      topicIdClicked: 0,
+      photosForTopicIdClicked: [],
+    }
+*/
 function useApplicationData() {
   const initialState = {
     photoId: 0,
@@ -92,7 +112,14 @@ function useApplicationData() {
       });
   }, [state.topicIdClicked]);
 
-  // wrapper functions
+/////////////////////////
+//// wrapper functions //
+/////////////////////////
+
+/**
+ * handleFavButton function definition, if selected picture photoId is not present in the favList array, it dispatch add photo action and vice versa.
+ * @param {Number} photoId 
+ */
   const handleFavButton = (photoId) => {
     if (!state.favList.includes(photoId)) {
       dispatch({ type: "FAV_PHOTO_ADDED", payload: photoId });
@@ -101,16 +128,29 @@ function useApplicationData() {
     }
   };
 
+  /**
+   * setPhotoDetails function definition, it dispatch action to set photoDetails to the state.
+   * @param {Object} newDetails 
+   */
   const setPhotoDetails = (newDetails) => {
     dispatch({ type: "SET_PHOTO_DETAILS", payload: newDetails });
   };
 
+  /**
+   * isPhotoLiked function definition, it returns boolean true, for photoId present in the favList array.
+   * @param {Number} photoId 
+   * @returns Boolean
+   */
   const isPhotoLiked = (photoId) => {
     if (state.favList.includes(photoId)) {
       return true;
     }
   };
 
+  /**
+   * setTopicIdClicked function definition, it dispatch the set topic id action to useReducer hook. 
+   * @param {Number} topicIdFromClicked 
+   */
   const setTopicIdClicked = (topicIdFromClicked) => {
     dispatch({ type: "SET_CLICKED_TOPIC_ID", payload: topicIdFromClicked });
   };

@@ -1,7 +1,11 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-
+/**
+ * PhotoListItem component, render each picture card or tile.
+ * @param {Object} props props are coming from PhotoList.jsx
+ * @returns JSX include PhotoFavButton
+ */
 const PhotoListItem = (props) => {
   const handleSidePeekModal = () => {
     props.setPhotoDetails({ ...props.item });

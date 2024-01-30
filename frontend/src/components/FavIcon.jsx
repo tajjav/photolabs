@@ -1,5 +1,9 @@
 import React from "react";
-
+/**
+ * FavIcon component, render heart icon, selected and unselected state. Show alert as well. 
+ * @param {Object} param0 props are coming from PhotoFavButton.jsx
+ * @returns FavIcon
+ */
 const FavIcon = ({ displayAlert, selected }) => {
   return (
     <svg
